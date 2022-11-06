@@ -82,7 +82,7 @@ class UsuarioModel extends Model
             "nome"				=> "Administrador",
             "nivel"				=> 1,                   // 1 = Administrador
             "statusRegistro"	=> 1,
-            "email"				=> "administrador@muraieshop.com.br",
+            "email"				=> "administrador@muriaeshop.com.br",
             "senha"				=> password_hash("fasm@2022", PASSWORD_DEFAULT),
             "pessoa_id"		    => null,
             "created_at"		=> $created_at,

@@ -1,3 +1,7 @@
+<?= $this->extend("templates/layoutSite"); ?>
+
+<?= $this->section("conteudo") ?>
+
 <section>
     <div class="container">
         <div class="blog-banner">
@@ -14,7 +18,7 @@
             <div class="col-lg-6">
                 <div class="owl-carousel owl-theme s_Product_carousel">
                     <div class="single-prd-item">
-                        <img class="img-fluid" src=""<?= base_url("assets/img/produto/produto1.png") ?>" alt="">
+                        <img class="img-fluid" src="<?= base_url("assets/img/produto/produto1.png") ?>" alt="">
                     </div>
                 </div>
             </div>
@@ -39,7 +43,7 @@
                                         class="increase items-count" type="button"><i
                                             class="ti ti-angle-up"></i></button>
                                     <button
-                                        onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
+                                        onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) && sst > 0 ) result.value--;return false;"
                                         class="reduced items-count" type="button"><i
                                             class="ti ti-angle-down"></i></button>
                         
@@ -184,3 +188,5 @@
     </div>
 </section>
 </section>
+
+<?= $this->endSection() ?>

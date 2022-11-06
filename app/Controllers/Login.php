@@ -28,7 +28,7 @@ class Login extends BaseController
 
 			// Verifica se existe usuários criados na base de dados
 
-			if (count($UsuarioModel->findall()) == 0) {
+			if (count($UsuarioModel->findAll()) == 0) {
                 if ($UsuarioModel->insertDadosSuperUser() > 0) {
 					return redirect()->back()->with("msgSucesso", "Super usuário criado com sucesso, favor efetar novamente o login")->withInput();
                 } else {

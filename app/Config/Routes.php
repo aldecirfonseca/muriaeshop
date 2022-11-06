@@ -48,6 +48,7 @@ $routes->get('criarNovaConta', 'Home::criarNovaConta');
 $routes->get('carrinhoCompras', 'Home::carrinhoCompras');
 $routes->get('carrinhoPagamento', 'Home::carrinhoPagamento');
 $routes->get('carrinhoConfirmacao', 'Home::carrinhoConfirmacao');
+$routes->get('produtodetalhe/(:num)', 'Home::produtoDetalhe/$1');
 
 // Login
 $routes->group('Login', function ($routes) {
@@ -85,6 +86,8 @@ $routes->group('Produto', function ($routes) {
     $routes->get('form/(:segment)/(:num)', 'Produto::form/$1/$2');
     $routes->post('store', 'Produto::store');
     $routes->post('delete', 'Produto::delete');
+    $routes->get('excluirImagem/(:num)/(:segment)/(:segment)', 'Produto::excluirImagem/$1/$2/$3');
+
 });
 
 /*

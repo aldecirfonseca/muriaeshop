@@ -18,6 +18,10 @@
 
         <link rel="stylesheet" href="<?= base_url("assets/css/style.css") ?>">
         <link rel="stylesheet" href="<?= base_url("assets/css/customizado.css") ?>">
+
+        <script src="<?= base_url("assets/vendors/jquery/jquery-3.2.1.min.js") ?>"></script>
+        <script src="<?= base_url("assets/js/jqueryMask.js") ?>" type="text/Javascript"></script>
+
     </head>
 
     <body>
@@ -171,7 +175,6 @@
             </div>
         </footer>
 
-        <script src="<?= base_url("assets/vendors/jquery/jquery-3.2.1.min.js") ?>"></script>
         <script src="<?= base_url("assets/vendors/bootstrap/bootstrap.bundle.min.js") ?>"></script>
         <script src="<?= base_url("assets/vendors/skrollr.min.js") ?>"></script>
         <script src="<?= base_url("assets/vendors/owl-carousel/owl.carousel.min.js") ?>"></script>

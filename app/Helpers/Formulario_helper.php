@@ -14,7 +14,7 @@ function exibeTitulo($titulo, $parametro = ['acao' => 'lista'])
     }
 
     $subTitulo  = $titulo;
-    $link       = '/index';
+    $link       = '/lista';
     $icone      = 'list';
 
     if ($parametro['acao'] == 'new') {

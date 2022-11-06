@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\ProdutoModel;
+
 class Home extends BaseController
 {
 	/**
@@ -11,7 +13,9 @@ class Home extends BaseController
 	 */
 	public function index()
 	{
-		return view('home');
+		$ProdutoModel = new ProdutoModel();
+
+		return view('home', $ProdutoModel->getListaHome());
 	}
 
 	/**
@@ -109,5 +113,11 @@ class Home extends BaseController
 	public function carrinhoConfirmacao()
 	{
 		return view('carrinho-confirmacao');
+	}
+
+
+	public function produtoDetalhe($id)
+	{
+		return view('produto-detalhe');
 	}
 }
