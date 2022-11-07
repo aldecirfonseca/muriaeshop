@@ -37,7 +37,13 @@ class Filters extends BaseConfig
         'before' => [
             'auth' => [
 				'except' => [
-					'home', 'login','sobrenos', 'contato', 'produtodetalhe/*'
+                        'home', 
+                        'login', 
+                        'login/*',
+                        'sobrenos', 
+                        'contato', 
+                        'contatoEnviaEmail', 
+                        'produtodetalhe/*'
 					]
 				]
             // 'honeypot',

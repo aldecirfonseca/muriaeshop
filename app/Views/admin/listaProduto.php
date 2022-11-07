@@ -26,8 +26,8 @@
                             <tr>                    
                                 <td><?= $value['descricao'] ?></td>
                                 <td><?= $value['departamentoDescricao'] ?></td>
-                                <td><?= formatValor($value['precoVenda']) ?></td>
-                                <td><?= mostraStatus($value['statusRegistro']) ?></td>
+                                <td class="text-right"><?= formatValor($value['precoVenda']) ?></td>
+                                <td class="text-center"><?= mostraStatus($value['statusRegistro']) ?></td>
                                 <td>
                                     <a href="<?= base_url() ?>/Produto/form/view/<?= $value['id'] ?>" class="btn btn-secondary btn-sm btn-icons-crud" title="Visualizar"><i class="fa fa-eye" aria-hidden="true"></i></a>    
                                     <a href="<?= base_url() ?>/Produto/form/update/<?= $value['id'] ?>" class="btn btn-secondary btn-sm btn-icons-crud" title="Alterar"><i class="fa fa-file" aria-hidden="true"></i></a>    

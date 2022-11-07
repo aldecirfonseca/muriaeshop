@@ -90,10 +90,14 @@ class ProdutoModel extends BaseModel
                                             ->where([
                                                 'produto.statusRegistro' => 1,
                                                 'produto.departamento_id' => $dados[$yyy]['id']
-                                            ])->orderBy("departamentoDescricao, descricao")->findAll();
+                                            ])->orderBy("departamentoDescricao, descricao")
+                                            ->findAll();
 		
 			for ($xxx = 0; $xxx < count($dados[$yyy]['aProduto']); $xxx++) {
-				$dados[$yyy]['aProduto'][$xxx]['aImagem'] = $ProdutoImagemModel->where('produto_id', $dados[$yyy]['aProduto'][$xxx]['id'])->orderBy('nomeArquivo')->findAll();
+				$dados[$yyy]['aProduto'][$xxx]['aImagem'] = $ProdutoImagemModel
+                                                            ->where('produto_id', $dados[$yyy]['aProduto'][$xxx]['id'])
+                                                            ->orderBy('nomeArquivo')
+                                                            ->findAll();
 			}
 
 		}
