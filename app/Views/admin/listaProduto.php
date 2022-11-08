@@ -46,6 +46,9 @@
 
                 </tbody>
             </table>
+
+            <?= $pages->links('default', 'paginacao'); ?>
+
         </div>
 	</section>
 </div>
