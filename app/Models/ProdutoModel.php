@@ -65,7 +65,7 @@ class ProdutoModel extends BaseModel
         if (count($aFilter) > 0) {
             $this->where($aFilter);
         }
-
+        
         return $this->orderBy($ordernarPor)->paginate(3);
     }
 

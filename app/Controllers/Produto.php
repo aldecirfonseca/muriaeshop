@@ -31,6 +31,7 @@ class Produto extends BaseController
         return view('admin/listaProduto', $data);
     }
 
+
     /**
      * form
      *
