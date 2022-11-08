@@ -26,6 +26,7 @@ class Produto extends BaseController
     public function index()
     {
         $data['data'] = $this->ProdutoModel->getListaProduto();
+        $data["pages"] = $this->ProdutoModel->pager;
 
         return view('admin/listaProduto', $data);
     }

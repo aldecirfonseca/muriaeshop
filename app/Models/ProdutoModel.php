@@ -66,7 +66,7 @@ class ProdutoModel extends BaseModel
             $this->where($aFilter);
         }
 
-        return $this->orderBy($ordernarPor)->findAll();
+        return $this->orderBy($ordernarPor)->paginate(3);
     }
 
 
