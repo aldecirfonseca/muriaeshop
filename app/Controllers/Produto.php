@@ -16,6 +16,7 @@ class Produto extends BaseController
     public function __construct()
     {
         $this->ProdutoModel = new ProdutoModel();
+        $this->ProdutoImagemModel = new ProdutoImagemModel();
     }
 
     /**
@@ -46,14 +47,13 @@ class Produto extends BaseController
         $this->dados['aAnexo'] = [];
 
         $DepartamentoModel  = new DepartamentoModel();
-        $ProdutoImagemModel = new ProdutoImagemModel();
 
         $this->dados['aDepartamento']   = $DepartamentoModel->where("statusRegistro", 1)->orderBy('descricao')->findAll();
 
         if ($action != 'new') {
 
             $this->dados['data']    = $this->ProdutoModel->find($id);
-            $this->dados['aAnexo']  = $ProdutoImagemModel->where('produto_id', $id)->orderBy('nomeArquivo')->findAll();
+            $this->dados['aAnexo']  = $this->ProdutoImagemModel->where('produto_id', $id)->orderBy('nomeArquivo')->findAll();
 
            // dd( $ProdutoImagemModel);
 
@@ -78,6 +78,7 @@ class Produto extends BaseController
     {
         $post       = $this->request->getPost();
         $aImagens   = $this->request->getFiles();
+        $aAnexo     = [];
 
         $DepartamentoModel = new DepartamentoModel();
 
@@ -92,12 +93,18 @@ class Produto extends BaseController
 					$extArquivo = $arq->guessExtension();
 
 					if (array_search($extArquivo, array('bmp', 'png', 'jpg', 'jpeg', 'gif', 'webp')) === false) {
+
 						session()->setFlashData("msgError", "Extensão de arquivo não permitida ({$extArquivo}).");
+
+                        if ($post['action'] != 'new') {
+                            $aAnexo = $this->ProdutoImagemModel->where('produto_id', $post['id'])->orderBy('nomeArquivo')->findAll();
+                        }
 
                         return view("admin/formProduto" , [
                             'action'        => $post['action'],
                             'data'          => $post,
                             'aDepartamento' => $DepartamentoModel->where("statusRegistro", 1)->orderBy('descricao')->findAll(),
+                            'aAnexo'        => $aAnexo,
                             'errors'        => []
                         ]);
 					}
@@ -156,10 +163,15 @@ class Produto extends BaseController
 
         } else {
 
+            if ($post['action'] != 'new') {
+                $aAnexo = $this->ProdutoImagemModel->where('produto_id', $post['id'])->orderBy('nomeArquivo')->findAll();
+            }
+
             return view("admin/formProduto" , [
                 'action'        => $post['action'],
                 'data'          => $post,
                 'aDepartamento' => $DepartamentoModel->where("statusRegistro", 1)->orderBy('descricao')->findAll(),
+                'aAnexo'        => $aAnexo,
                 'errors'        => $this->ProdutoModel->errors()
             ]);
 
